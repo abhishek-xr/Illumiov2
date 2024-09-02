@@ -39,10 +39,10 @@ class TestOutputWriter(unittest.TestCase):
         with patch("builtins.open", mock_open()) as mock_file:
             OutputWriter.write(tag_counts, port_protocol_counts, "dummy_output.csv")
 
-            # Combine all calls to write into a single string
+            #  combining all calls to write into a single string
             actual_output = "".join(call.args[0] for call in mock_file().write.call_args_list)
 
-            # Verify the actual output matches the expected output
+            # verifying if the actual output matches the expected output
             self.assertEqual(actual_output, expected_output)
 
 if __name__ == '__main__':
